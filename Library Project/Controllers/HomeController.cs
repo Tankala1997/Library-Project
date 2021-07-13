@@ -26,9 +26,5 @@ namespace Library_Project.Controllers
 
             return View();
         }
-        public ActionResult TestLayout()
-        {
-            return View();
-        }
     }
 }
