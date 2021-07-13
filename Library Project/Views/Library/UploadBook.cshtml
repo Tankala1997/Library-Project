@@ -1,0 +1,16 @@
+﻿@model Library_Project.Models.Book
+@{
+    ViewBag.Title = "UploadBook";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<h2>UploadBook</h2>
+
+<form action="~/Library/UploadBook1" method="post" enctype="multipart/form-data">
+    <label>BookId</label>
+    <input type="text" name="BookId" style="width: 226px; margin-left: 366px;" value="@Model.BookId" class="form-control" /><br />
+    <label for="photo">Photo:</label>
+    <input type="file" name="photo" id="photo" />
+    <input type="submit" value="Upload"  />
+</form>
+@ViewBag.UploadMsg
