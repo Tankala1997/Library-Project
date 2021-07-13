@@ -1,0 +1,36 @@
+﻿@model List<Library_Project.Models.Book>
+@{
+    ViewBag.Title = "GetBookByName";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<link href="~/CSS/StyleSheet1.css" rel="stylesheet" type="text/css"/>
+<h2>GetBookByName</h2>
+<table class="table table-bordered">
+    <tr >
+      
+        <th class="class1">BookName</th>
+        <th class="class1">BookDescription</th>
+        <th class="class1">Book Image</th>
+        <th class="class1">Action</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            @*<td>@item.BookId</td>*@
+            <td>@item.BookName</td>
+            <td>@item.BookDescription</td>
+            <td>
+                <img src="data:image;base64,@System.Convert.ToBase64String(item.BookImage)" width="80" height="80" />
+            </td>
+            <td>
+                @Html.ActionLink("Update", "UpdateBook", new { @BookId = item.BookId }) || <span></span>
+                @Html.ActionLink("Delete", "DeleteBook", new { @BookId = item.BookId })
+            </td>
+        </tr>
+    }
+    
+
+
+</table>
+@Html.ActionLink("Go to Books Menu", "GetBooks")
